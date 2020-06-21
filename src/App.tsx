@@ -1,19 +1,16 @@
 import React from "react";
-
-import styles from "./App.module.css";
-import SidePanel from "./components/SidePanel/SidePanel";
+import Homepage from "./components/Homepage/Homepage";
+import Register from "./components/Auth/Register/Register";
+import Login from "./components/Auth/Login/Login";
+import { Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className={styles.App}>
-      <SidePanel />
-      <div>
-        <div>Conversation Name</div>
-        <div>Conversation Info</div>
-        <div>Message</div>
-        <div>Input Message</div>
-      </div>
-    </div>
+    <Switch>
+      <Route exact path="/" component={Homepage} />
+      <Route path="/register" component={Register} />
+      <Route path="/login" component={Login} />
+    </Switch>
   );
 }
 

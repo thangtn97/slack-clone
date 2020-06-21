@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
+import styles from "./Backdrop.module.css";
 
 interface IProps {
-  isOpen: boolean;
-  children: any;
+  show: boolean;
+  clicked: () => void;
 }
 
-const Backdrop: React.FC<IProps> = (props) => {
-  const [isOpen, setIsOpen] = useState(false);
-  return <div onClick={() => setIsOpen(false)}>{props.children}</div>;
-};
-
+const Backdrop: React.FC<IProps> = ({ show, clicked }) =>
+  show ? <div className={styles.Backdrop} onClick={clicked}></div> : null;
 export default Backdrop;
